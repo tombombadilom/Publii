@@ -13,9 +13,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode=development --progress --watch",
     "prod": "cross-env NODE_ENV=production webpack --mode=production --progress --hide-modules",
-    "build": "gulp build && cross-env NODE_ENV=development ./node_modules/.bin/electron app/",
+    "build": "gulp build && cross-env NODE_ENV=development ./node_modules/.bin/electron --trace-warnings --unhandled-rejections=strict app/ ",
     "build2": "cross-env NODE_ENV=development ./node_modules/.bin/electron app/",
-    "start": "export GDK_IS_WAYLAND_DISPLAY=1 && electron app/main.js --use-gl=desktop --enable-logging",
+    "start": "ELECTRON_ENABLE_LOGGING=false electron app/main.js --trace-warnings --unhandled-rejections=strict --enable-logging",
     "test": "mocha app/back-end/**/*.spec.js --reporter dot",
     "prepare-editor": "npm run remove-vendor-dist-dir && npm run prepare-vendor-dist-dir && npm run copy-vendor-files",
     "remove-vendor-dist-dir": "rm -rf app/dist/vendor",
@@ -34,6 +34,9 @@
   },
   "keywords": [],
   "devDependencies": {
+    "@vue/compat": "^3.2.45",
+    "@vue/compiler-sfc": "^3.2.45",
+    "@vue/reactivity": "^3.2.45",
     "cross-env": "7.0.3",
     "css-loader": "6.7.2",
     "electron": "22.0.0",
@@ -50,7 +53,6 @@
     "sass-loader": "13.2.0",
     "vue-loader": "17.0.1",
     "vue-style-loader": "4.1.3",
-    "vue-template-compiler": "2.7.14",
     "webpack": "5.75.0",
     "webpack-cli": "5.0.1",
     "xregexp": "^5.1.1"

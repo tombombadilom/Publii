@@ -1,12 +1,11 @@
 'use strict';
 
-const electron = require('electron');
-const webContents = electron.webContents;
-const Menu = electron.Menu;
-const electronApp = electron.app;
-const dialog = electron.dialog;
-const ipcMain = electron.ipcMain;
-const nativeTheme = electron.nativeTheme;
+const { app, BrowserWindow } = require('electron')
+const webContents = app.webContents;
+const Menu = app.Menu;
+const dialog = app.dialog;
+const ipcMain = app.ipcMain;
+const nativeTheme = app.nativeTheme;
 const os = require('os');
 const App = require('./back-end/app.js');
 const createSlug = require('./back-end/helpers/slug.js');
@@ -22,19 +21,19 @@ if (typeof process.env.NODE_ENV === 'undefined') {
 let mainWindow;
 let appInstance;
 
-electronApp.on('window-all-closed', function () {
+app.on('window-all-closed', function () {
     electronApp.quit();
 });
 
-electronApp.on('ready', function () {
+app.on('ready').then(() => {
     // Start the app
     let startupSettings = {
         'mainWindow': mainWindow,
-        'app': electronApp,
+        'app': app,
         'basedir': __dirname
     };
 
-    appInstance = new App(startupSettings);
+    appInstance = new BrowserWindow(startupSettings);
     
     ipcMain.on('publii-set-spellchecker-language', (event, language) => {
         global.spellCheckerLanguage = new String(language).replace(/[^a-z\-_]/gmi, '');
@@ -96,7 +95,7 @@ electronApp.on('ready', function () {
 
     // App credits list
     ipcMain.handle('app-credits-list:get-app-path', () => {
-        return electronApp.getAppPath();
+        return app.getAppPath();
     });
 
     // Use Electron API to create slugs
@@ -199,7 +198,7 @@ electronApp.on('ready', function () {
                 label: "Quit",
                 accelerator: "CmdOrCtrl+Q",
                 click: () => { 
-                    electronApp.quit();
+                    app.quit();
                 }
             }]
         }, {
