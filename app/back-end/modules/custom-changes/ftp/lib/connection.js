@@ -7,7 +7,8 @@ var fs = require('fs'),
     inspect = require('util').inspect;
 
 var Parser = require('./parser');
-var XRegExp = require('xregexp').XRegExp;
+const XRegExp = require('xregexp');
+XRegExp.uninstall('namespacing');
 
 var REX_TIMEVAL = XRegExp.cache('^(?<year>\\d{4})(?<month>\\d{2})(?<date>\\d{2})(?<hour>\\d{2})(?<minute>\\d{2})(?<second>\\d+)(?:.\\d+)?$'),
     RE_PASV = /([\d]+),([\d]+),([\d]+),([\d]+),([-\d]+),([-\d]+)/,
