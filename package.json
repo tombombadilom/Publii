@@ -15,7 +15,7 @@
     "prod": "cross-env NODE_ENV=production webpack --mode=production --progress --hide-modules",
     "build": "gulp build && cross-env NODE_ENV=development ./node_modules/.bin/electron app/",
     "build2": "cross-env NODE_ENV=development ./node_modules/.bin/electron app/",
-    "start": "DISPLAY=\"${DISPLAY:=:0}\"  electron app/main.js --use-gl=desktop --disable-gpu --disable-software-rasterizer --enable-logging",
+    "start": "export GDK_IS_WAYLAND_DISPLAY=1 && electron app/main.js --use-gl=desktop --enable-logging",
     "test": "mocha app/back-end/**/*.spec.js --reporter dot",
     "prepare-editor": "npm run remove-vendor-dist-dir && npm run prepare-vendor-dist-dir && npm run copy-vendor-files",
     "remove-vendor-dist-dir": "rm -rf app/dist/vendor",
