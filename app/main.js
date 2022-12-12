@@ -7,12 +7,13 @@ const dialog = app.dialog;
 const ipcMain = app.ipcMain;
 const nativeTheme = app.nativeTheme;
 const os = require('os');
+const path = require('path');
 const App = require('./back-end/app.js');
 const createSlug = require('./back-end/helpers/slug.js');
 const passwordSafeStorage = require('keytar');
 const ContextMenuBuilder = require('./back-end/helpers/context-menu-builder.js');
 const { default: installExtension, VUEJS_DEVTOOLS } = require('electron-devtools-installer');
-
+const packageJson = require('../package.json');
 if (typeof process.env.NODE_ENV === 'undefined') {
     process.env.NODE_ENV = 'production';
 }
@@ -21,6 +22,7 @@ if (typeof process.env.NODE_ENV === 'undefined') {
 let mainWindow;
 let appInstance;
 
+
 app.on('window-all-closed', function () {
     electronApp.quit();
 });
@@ -28,6 +30,8 @@ app.on('window-all-closed', function () {
 app.on('ready').then(() => {
     // Start the app
     let startupSettings = {
+        width: 800,
+        height: 600,
         'mainWindow': mainWindow,
         'app': app,
         'basedir': __dirname

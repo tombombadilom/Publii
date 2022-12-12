@@ -9,7 +9,6 @@ DEFS_Debug := \
 	'-DV8_DEPRECATION_WARNINGS=1' \
 	'-DV8_DEPRECATION_WARNINGS' \
 	'-DV8_IMMINENT_DEPRECATION_WARNINGS' \
-	'-D_GLIBCXX_USE_CXX11_ABI=1' \
 	'-D_LARGEFILE_SOURCE' \
 	'-D_FILE_OFFSET_BITS=64' \
 	'-D__STDC_FORMAT_MACROS' \
@@ -37,16 +36,16 @@ CFLAGS_C_Debug :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Debug := \
 	-fno-rtti \
-	-std=gnu++17
+	-std=gnu++1y
 
 INCS_Debug := \
-	-I/home/tom/.cache/node-gyp/19.2.0/include/node \
-	-I/home/tom/.cache/node-gyp/19.2.0/src \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/openssl/config \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/openssl/openssl/include \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/uv/include \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/zlib \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/v8/include
+	-I/home/tom/.cache/node-gyp/14.20.1/include/node \
+	-I/home/tom/.cache/node-gyp/14.20.1/src \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/openssl/config \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/openssl/openssl/include \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/uv/include \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/zlib \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/v8/include
 
 DEFS_Release := \
 	'-DNODE_GYP_MODULE_NAME=bindings' \
@@ -55,7 +54,6 @@ DEFS_Release := \
 	'-DV8_DEPRECATION_WARNINGS=1' \
 	'-DV8_DEPRECATION_WARNINGS' \
 	'-DV8_IMMINENT_DEPRECATION_WARNINGS' \
-	'-D_GLIBCXX_USE_CXX11_ABI=1' \
 	'-D_LARGEFILE_SOURCE' \
 	'-D_FILE_OFFSET_BITS=64' \
 	'-D__STDC_FORMAT_MACROS' \
@@ -80,16 +78,16 @@ CFLAGS_C_Release :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Release := \
 	-fno-rtti \
-	-std=gnu++17
+	-std=gnu++1y
 
 INCS_Release := \
-	-I/home/tom/.cache/node-gyp/19.2.0/include/node \
-	-I/home/tom/.cache/node-gyp/19.2.0/src \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/openssl/config \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/openssl/openssl/include \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/uv/include \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/zlib \
-	-I/home/tom/.cache/node-gyp/19.2.0/deps/v8/include
+	-I/home/tom/.cache/node-gyp/14.20.1/include/node \
+	-I/home/tom/.cache/node-gyp/14.20.1/src \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/openssl/config \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/openssl/openssl/include \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/uv/include \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/zlib \
+	-I/home/tom/.cache/node-gyp/14.20.1/deps/v8/include
 
 OBJS :=
 

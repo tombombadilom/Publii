@@ -81,14 +81,15 @@
     "vuex": "4.1.0"
   },
   "devDependencies": {
-    "node-loader": "2.0.0",
-    "node-sass": "npm:sass@1.56.2",
-    "sass-loader": "13.2.0",
-    "vue-loader": "17.0.1",
-    "vue-style-loader": "4.1.3",
     "codemirror": "6.0.1",
     "devtron": "1.4.0",
     "electron": "22.0.0",
-    "node-abi": "3.30.0"
+    "node-abi": "3.30.0",
+    "node-loader": "2.0.0",
+    "node-sass": "npm:sass@1.56.2",
+    "path": "^0.12.7",
+    "sass-loader": "13.2.0",
+    "vue-loader": "17.0.1",
+    "vue-style-loader": "4.1.3"
   }
 }
